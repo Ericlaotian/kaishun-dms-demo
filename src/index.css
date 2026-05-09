@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 凯顺DMS UI 规格 - 基础样式 */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-page-bg text-text-primary font-sans m-0 p-0;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 方正设计 - 无圆角 */
+  input,
+  select,
+  textarea,
+  button {
+    border-radius: 0;
+  }
+
+  /* 输入框基础样式 */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="email"],
+  input[type="password"] {
+    @apply h-input-height px-3 border border-border-color bg-white text-text-primary;
+    font-size: 14px;
+  }
+
+  input:focus {
+    @apply border-primary outline-none;
+  }
+
+  input:disabled {
+    @apply bg-page-bg text-text-muted cursor-not-allowed;
+  }
+
+  input::placeholder {
+    color: #bfbfbf;
+  }
+}
+
+@layer components {
+  /* 表单行容器 */
+  .form-item {
+    @apply flex items-center h-form-row-height leading-form-row-height;
+  }
+
+  /* 表单标签 */
+  .form-label {
+    @apply w-label-width text-text-secondary text-form flex-shrink-0;
+  }
+
+  .form-label.required::before {
+    content: '*';
+    @apply text-error mr-1;
+  }
+
+  /* 表单输入框 */
+  .form-input {
+    @apply flex-1 h-input-height px-3 border border-border-color text-form;
+  }
+
+  /* 下拉选择框 */
+  .select-wrapper {
+    @apply relative flex-1;
+  }
+
+  .select-input {
+    @apply w-full h-input-height px-3 pr-8 border border-border-color bg-white cursor-pointer;
+  }
+
+  /* 工具栏按钮 */
+  .toolbar-btn {
+    @apply h-btn-height px-4 border border-primary bg-white text-primary text-form cursor-pointer;
+  }
+
+  .toolbar-btn:hover {
+    @apply border-primary;
+  }
+
+  .toolbar-btn.primary {
+    @apply bg-primary text-white;
+  }
+
+  .toolbar-btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* 底部操作按钮 */
+  .action-btn {
+    @apply h-btn-height px-4 text-form cursor-pointer;
+  }
+
+  .action-btn-default {
+    @apply action-btn bg-white border border-border-color text-text-primary;
+  }
+
+  .action-btn-primary {
+    @apply action-btn bg-primary border border-primary text-white;
+  }
+
+  /* 数据表格 */
+  .data-table {
+    @apply w-full border-collapse border border-border-color;
+  }
+
+  .data-table th {
+    @apply h-table-row-height bg-table-header-bg border border-border-color text-center font-medium text-text-primary;
+  }
+
+  .data-table td {
+    @apply h-table-row-height border border-border-color px-2 text-form;
+  }
+
+  .data-table tr:nth-child(even) {
+    @apply bg-table-stripe;
+  }
+
+  .data-table tr:nth-child(odd) {
+    @apply bg-card-bg;
+  }
+
+  .total-row td {
+    @apply bg-table-header-bg font-medium;
+  }
+
+  /* 面包屑导航 */
+  .breadcrumb {
+    @apply flex items-center h-8 text-form;
+  }
+
+  .breadcrumb-link {
+    @apply text-primary no-underline cursor-pointer;
+  }
+
+  .breadcrumb-link:hover {
+    @apply underline;
+  }
+
+  .breadcrumb-separator {
+    @apply mx-2 text-text-muted;
+  }
+
+  .breadcrumb-current {
+    @apply text-text-primary;
+  }
+
+  /* Tab切换 */
+  .tab-list {
+    @apply flex border-b-2 border-border-color;
+  }
+
+  .tab-item {
+    @apply h-8 px-6 text-text-secondary cursor-pointer border-b-2 border-transparent -mb-0.5;
+  }
+
+  .tab-item.active {
+    @apply text-primary border-b-2 border-primary;
+  }
+
+  .tab-item:hover {
+    @apply text-primary;
+  }
+
+  /* 状态标签 */
+  .status-draft {
+    @apply text-primary;
+  }
+
+  .status-approved {
+    @apply text-success;
+  }
+
+  .status-void {
+    @apply text-text-muted;
+  }
+
+  /* 金额箭头 */
+  .amount-up {
+    @apply text-error;
+  }
+
+  .amount-down {
+    @apply text-success;
+  }
+}
+
+@layer utilities {
+  /* 固定宽度布局 */
+  .page-container {
+    @apply min-w-page-width max-w-page-width mx-auto;
+  }
+
+  /* 卡片样式 */
+  .card {
+    @apply bg-card-bg border border-border-color;
+  }
+}
